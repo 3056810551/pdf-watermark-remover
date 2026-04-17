@@ -11,6 +11,12 @@
 
 当前已支持处理类似“夸克扫描王”这类固定页眉、页脚或角落位置的导出水印。
 
+## 界面示意图
+
+仓库中的 `example.png` 为界面示意图，文件已归档到 `docs/assets/example.png`。
+
+![PDF Watermark Remover 界面示意图](docs/assets/example.png)
+
 ## 功能特性
 
 - 图形化框选 PDF 水印区域
@@ -70,7 +76,7 @@ source .venv/Scripts/activate
 安装运行依赖：
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements/runtime.txt
 ```
 
 ## 启动
@@ -151,23 +157,23 @@ python app.py
 如果你希望把项目打包成“拿到就能用”的单文件程序，请先安装打包依赖：
 
 ```bash
-pip install -r requirements-build.txt
+pip install -r requirements/build.txt
 ```
 
 执行打包：
 
 ```bash
-python build_single_file.py
+python scripts/build_single_file.py
 ```
 
 如果未激活虚拟环境，也可以这样执行：
 
 ```bash
 # PowerShell / CMD
-.\.venv\Scripts\python.exe build_single_file.py
+.\.venv\Scripts\python.exe scripts\build_single_file.py
 
 # Git Bash
-./.venv/Scripts/python.exe build_single_file.py
+./.venv/Scripts/python.exe scripts/build_single_file.py
 ```
 
 打包完成后，生成文件位于：
@@ -183,9 +189,14 @@ Windows 用户拿到该 `.exe` 后，无需额外安装 Python、PyMuPDF 或 Pil
 ```text
 .
 ├─ app.py
-├─ build_single_file.py
-├─ requirements.txt
-├─ requirements-build.txt
+├─ docs/
+│  └─ assets/
+│     └─ example.png
+├─ requirements/
+│  ├─ runtime.txt
+│  └─ build.txt
+├─ scripts/
+│  └─ build_single_file.py
 └─ pdf_watermark_remover/
    ├─ __init__.py
    ├─ gui.py
@@ -195,7 +206,10 @@ Windows 用户拿到该 `.exe` 后，无需额外安装 Python、PyMuPDF 或 Pil
 文件说明：
 
 - `app.py`：程序入口
-- `build_single_file.py`：单文件打包脚本
+- `docs/assets/example.png`：界面示意图
+- `scripts/build_single_file.py`：单文件打包脚本
+- `requirements/runtime.txt`：运行依赖
+- `requirements/build.txt`：打包依赖
 - `pdf_watermark_remover/gui.py`：图形界面逻辑
 - `pdf_watermark_remover/processor.py`：坐标模型与批量处理逻辑
 
